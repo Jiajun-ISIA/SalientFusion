@@ -1,0 +1,21 @@
+CUDA_VISIBLE_DEVICES=0 python -u train.py --clip_arch ViT-L-14.pt --dataset_path dataset_root/mit-states --save_path save/mit-states --yml_path ./config/troika/mit-states.yml --num_workers 10 --seed 0
+
+CUDA_VISIBLE_DEVICES=1 python -u train.py --clip_arch ViT-L-14.pt --dataset_path dataset_root/ut-zap50k --save_path save/ut-zap50k --yml_path ./config/troika/ut-zappos.yml --num_workers 10 --seed 0
+
+CUDA_VISIBLE_DEVICES=1 python -u train.py --clip_arch ViT-L-14.pt --dataset_path dataset_root/cgqa --save_path save/cgqa --yml_path ./config/troika/cgqa.yml --num_workers 10 --seed 0
+
+CUDA_VISIBLE_DEVICES=0,1 python -u train.py --clip_arch ViT-L-14.pt --dataset_path dataset_root/mit-states --save_path save/mit-states --yml_path ./config/troika/mit-states.yml --seed 0
+
+
+
+
+CUDA_VISIBLE_DEVICES=1 python -u test.py --clip_arch ViT-L-14.pt --dataset_path dataset_root/food101 --save_path save/food101 --yml_path ./config/troika/food101.yml --num_workers 10 --seed 0
+
+
+
+
+CUDA_VISIBLE_DEVICES=1 python -u test.py --clip_arch ViT-L-14.pt --dataset_path dataset_root/food101 --save_path save/food172_real_1111 --yml_path ./config/troika/food101.yml --num_workers 10 --seed 0 --load_model save/food101_fusion/val_best.pt
+
+CUDA_VISIBLE_DEVICES=1 python -u train.py --clip_arch ViT-L-14.pt --dataset_path dataset_root/food172 --save_path save/food172_our_nodep --yml_path ./config/troika/food172.yml --num_workers 10 --seed 0
+
+CUDA_VISIBLE_DEVICES=1 python -u train.py --clip_arch ViT-L-14.pt --dataset_path dataset_root/ut-zap50k --save_path save/ut-zap50k --yml_path ./config/troika/ut-zappos.yml --num_workers 10 --seed 0
